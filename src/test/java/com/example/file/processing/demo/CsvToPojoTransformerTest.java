@@ -2,7 +2,7 @@ package com.example.file.processing.demo;
 
 import com.example.file.processing.demo.transformation.Invoice;
 import com.example.file.processing.demo.transformation.Person;
-import com.example.file.processing.demo.transformation.csv.CsvToPersonTransformer;
+import com.example.file.processing.demo.transformation.csv.CsvToPojoTransformer;
 import com.opencsv.CSVReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -16,12 +16,12 @@ import org.springframework.core.io.ClassPathResource;
 import static com.example.file.processing.demo.CsvToXmlTransformerTest.compressByteArrayEncodeToString;
 import static junit.framework.Assert.assertEquals;
 
-public class CsvToPersonTransformerTest {
-    private CsvToPersonTransformer transformer;
+public class CsvToPojoTransformerTest {
+    private CsvToPojoTransformer transformer;
 
     @Before
     public void setup(){
-        transformer = new CsvToPersonTransformer();
+        transformer = new CsvToPojoTransformer();
     }
 
     @Test

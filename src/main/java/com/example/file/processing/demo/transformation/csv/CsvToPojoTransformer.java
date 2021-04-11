@@ -2,13 +2,18 @@ package com.example.file.processing.demo.transformation.csv;
 
 import com.example.file.processing.demo.transformation.Invoice;
 import com.example.file.processing.demo.transformation.Person;
+import com.opencsv.CSVReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CsvToPersonTransformer {
+public class CsvToPojoTransformer {
     public List<Person> convert(List<List<String>> csvRows){
         List<Person> results = new ArrayList<Person>();
         for (List<String> csvRow : csvRows) {
@@ -37,5 +42,17 @@ public class CsvToPersonTransformer {
             results.add(invoice);
         }
         return results;
+    }
+    public List<Invoice> convertCsvToPojo() throws ParseException {
+        List<List<String>> records = new ArrayList<List<String>>();
+        try (CSVReader csvReader = new CSVReader(new FileReader(new ClassPathResource("files/input.csv").getFile()));) {
+            String[] values = null;
+            while ((values = csvReader.readNext()) != null) {
+                records.add(Arrays.asList(values));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return  convertInvoice(records);
     }
 }

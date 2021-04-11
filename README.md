@@ -8,20 +8,20 @@ Project for converting data from one file format to another & splitting it to fi
 
 The base running logic is in unit tests.
 
-**CSVSplitterToSeparateCsvFiles**
+**CSVSplitterToSeparateCsvFilesTest**
 
 Iteration for the csv file and setting it into pojo;
 afterwards iterating the list of invoice pojo & grouping it by buyer & saving into separated csv files by buyer
 The files csv buyers are saved in filesystem it checks for directory is existing.
 
-**CSVSplitterToXML**
+**CSVSplitterToXMLTest**
 
 Iteration for the csv file and setting it into pojo;
 afterwards iterating the list of invoice pojo  & grouping it by buyer & saving into separated xml files by buyer; 
 invoice image field is omitted
 The files xml buyers are saved in filesystem it checks for directory is existing.
 
-**Bonus tests with Xstream (not required, but it took me time to overthink the requirement [also Spring Batch, Camel and other file processors topics...])**
+**Bonus tests with Xstream (not required, but it took me time to overthink the requirement)**
 
 **CsvToXmlTransformerTest**
 
